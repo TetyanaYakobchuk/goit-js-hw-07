@@ -8,13 +8,13 @@ const ingredients = [
 ];
 
 const ingredientsCollection = document.querySelector('ul');
-console.log(ingredientsCollection);
+//console.log(ingredientsCollection);
 
 const elements = ingredients.map(ingredient => {
     const element = document.createElement('li');
     element.append(...ingredient);
     return element.textContent+' ';
 });
-console.log(elements);
+//console.log(elements);
 
 ingredientsCollection.append(...elements);
