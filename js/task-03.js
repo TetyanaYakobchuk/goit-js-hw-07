@@ -17,11 +17,10 @@ const images = [
   },
 ];
 
-const listGallery = document.getElementById("gallery");
-images.forEach((elem, index) => {
-  const itemGallery = `<li><img src="${elem.url}" alt="${elem.alt}" width="480" height="280"></li>`;
-  listGallery.insertAdjacentHTML("beforeend", itemGallery);
-  const gallery_item = listGallery.children[index];
-  gallery_item.classList.add("item-gallery");
-  console.log(gallery_item);
+const list = document.querySelector('#gallery');
+const newList = images.map(image => {
+     return list.insertAdjacentHTML('afterbegin', `<li class="js-gallery-item"><img class="gallery-photo" src=${image.url} alt=${image.alt} width="300", height="200"></li>`);
 });
+
+list.style="display: flex";
+console.log(list);
