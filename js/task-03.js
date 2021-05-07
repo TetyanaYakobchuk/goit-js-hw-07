@@ -17,10 +17,15 @@ const images = [
   },
 ];
 
-const list = document.querySelector('#gallery');
-const newList = images.map(image => {
-     return list.insertAdjacentHTML('afterbegin', `<li class="js-gallery-item"><img class="gallery-photo" src=${image.url} alt=${image.alt} width="300", height="200"></li>`);
-});
 
-list.style="display: flex";
-console.log(list);
+const gallery = document.querySelector('#gallery');
+
+const makeGalleryList = ({ url, alt }) => {
+    return `<li class="gallery-list"><img class ="image" src="${url}" alt="${alt}"></img></li>`;
+};
+
+const imgList = images.map(makeGalleryList).join('');
+
+gallery.insertAdjacentHTML("afterbegin", imgList);
+
+console.log(gallery);
